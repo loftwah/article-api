@@ -50,17 +50,28 @@ func getArticle(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&Article{})
 }
 
-// Get article by tag and date that works with the URL structure /tags/{tagName}/[date]
+// The final endpoint, GET `/tags/{tagName}/{date}` will return the list of articles that have that tag name on the given date and some summary data about that tag for that day.
+// The GET `/tags/{tagName}/{date}` endpoint should produce the following JSON. Note that the actual url would look like /tags/health/20160922.
+// ```json
+// {
+//   "tag": "health",
+//   "count": 17,
+//   "articles": ["1", "7"],
+//   "related_tags": ["science", "fitness"]
+// }
+// ```
+
+// Add function to return the list of articles that have the matching {tagName] against the {date}
 func getArticleByTagAndDate(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
+	var articlesByTagAndDate []Article
 	for _, item := range articles {
 		if item.Tags[0] == params["tagName"] && item.Date == params["date"] {
-			json.NewEncoder(w).Encode(item)
-			return
+			articlesByTagAndDate = append(articlesByTagAndDate, item)
 		}
 	}
-	json.NewEncoder(w).Encode(&Article{})
+	json.NewEncoder(w).Encode(articlesByTagAndDate)
 }
 
 // Add new article
@@ -115,7 +126,7 @@ func main() {
 	// Route handles & endpoints
 	r.HandleFunc("/articles", getArticles).Methods("GET")
 	r.HandleFunc("/articles/{id}", getArticle).Methods("GET")                     // This meets requirement 2
-	r.HandleFunc("/tags/{tagName}/[date]", getArticleByTagAndDate).Methods("GET") // This meets requirement 3
+	r.HandleFunc("/tags/{tagName}/{date}", getArticleByTagAndDate).Methods("GET") // This meets requirement 3
 	r.HandleFunc("/articles", createArticle).Methods("POST")                      // This meets requirement 1
 	r.HandleFunc("/articles/{id}", updateArticle).Methods("PUT")
 	r.HandleFunc("/articles/{id}", deleteArticle).Methods("DELETE")
