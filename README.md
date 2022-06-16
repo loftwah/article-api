@@ -1,6 +1,6 @@
 ---
 layout: test
-title: Article API
+title: Article API - Dean Lofts
 ---
 
 ## Nine Publishing - Backend / Devops Articles API Test
@@ -145,17 +145,44 @@ The `count` field shows the number of tags for the tag for that day.
 
 The `articles` field contains a list of ids for the last 10 articles entered for that day.
 
-- I have run out of time for now, I will continue soon. This part isn't working yet.
+If you don't have data, run the following and change it up if you want to add more.
+
+```bash
+curl -H "Content-Type: application/json" -X POST -d '{"id":"1","title":"Article Four","date":"2021-09-17","body":"This is the body of article four","tags":["tag1","tag2","tag3"]}' http://127.0.0.1:8000/articles
+```
+
+Test the API endpoint
+
+```bash
+curl http://127.0.0.1:8000/tags/tag1/2021-09-17
+```
 
 ## Deliverables
 
-Please submit the following deliverables to: `amp HYPHEN tech HYPHEN test HYPHEN submissions HYPHEN group AT fairfaxmedia DOT com DOT au`.
-
 1. Source code for the solution described above
-1. Setup/installation instructions
-1. A quick (1-2 page) description of your solution, outlining anything of interest about the code you have produced. This could be anything from why you chose the language and or libraries, why you structured the project the way that you did, why you chose a particular error handling strategy, how you approached testing etc
-1. A list of assumptions that you've made while putting this together. We've only given you a very loose spec, so you'll probably need to fill in some blanks while you are working. If you note down the assumptions, for us, then we will be able review the code within the context of those assumptions
-1. [Optional] Tell us what you thought of the test and how long it took you to complete
-1. [Optional] Tell us what else you would have added to the code if you had more time
+
+This has been delivered within this repository
+
+2. Setup/installation instructions
+
+Documentation has been written to show how this works, and how to use it
+
+3. A quick (1-2 page) description of your solution, outlining anything of interest about the code you have produced. This could be anything from why you chose the language and or libraries, why you structured the project the way that you did, why you chose a particular error handling strategy, how you approached testing etc
+
+WIP
+
+4. A list of assumptions that you've made while putting this together. We've only given you a very loose spec, so you'll probably need to fill in some blanks while you are working. If you note down the assumptions, for us, then we will be able review the code within the context of those assumptions
+
+I assumed that this is an API to demonstrate that I understand how a basic CRUD application works, that the user has a reasonable understanding of an operating system that is able to run this application, and that the user has a basic understanding of the Go language.
+
+5. [Optional] Tell us what you thought of the test and how long it took you to complete
+
+It took me about an hour to complete this, but I had to stop and do other things before I was able to come back and complete it.
+
+6. [Optional] Tell us what else you would have added to the code if you had more time
+
+I would have built it as a GraphQL API like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory.
 
 **Note:** We prefer that you send us a link to a (public) repository. If you send an attachment via a zip file with your source code, please be aware that your email may get blocked. You will receive a confirmation email for your submission.
+
+[Link to repository](https://github.com/loftwah/article-api)
