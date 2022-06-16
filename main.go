@@ -50,28 +50,52 @@ func getArticle(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&Article{})
 }
 
-// The final endpoint, GET `/tags/{tagName}/{date}` will return the list of articles that have that tag name on the given date and some summary data about that tag for that day.
-// The GET `/tags/{tagName}/{date}` endpoint should produce the following JSON. Note that the actual url would look like /tags/health/20160922.
-// ```json
-// {
-//   "tag": "health",
-//   "count": 17,
-//   "articles": ["1", "7"],
-//   "related_tags": ["science", "fitness"]
-// }
-// ```
-
-// Add function to return the list of articles that have the matching {tagName] against the {date}
+// Add function to return the list of articles that have the matching {tagName] against the {date} and return the tag, the count of what is returned, an array of the article ids, and an array of the related tags
 func getArticleByTagAndDate(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
+	var tagName = params["tagName"]
+	var date = params["date"]
 	var articlesByTagAndDate []Article
+	var articlesByTag []Article
+	var articlesByDate []Article
+	var relatedTags []string
+	var articleCount int
+	var articleIds []string
+
 	for _, item := range articles {
-		if item.Tags[0] == params["tagName"] && item.Date == params["date"] {
-			articlesByTagAndDate = append(articlesByTagAndDate, item)
+		for _, tag := range item.Tags {
+			if tag == tagName {
+				articlesByTag = append(articlesByTag, item)
+			}
 		}
 	}
-	json.NewEncoder(w).Encode(articlesByTagAndDate)
+	for _, item := range articlesByTag {
+		if item.Date == date {
+			articlesByDate = append(articlesByDate, item)
+		}
+	}
+	for _, item := range articlesByDate {
+		articlesByTagAndDate = append(articlesByTagAndDate, item)
+	}
+	for _, item := range articlesByTagAndDate {
+		for _, tag := range item.Tags {
+			if tag != tagName {
+				relatedTags = append(relatedTags, tag)
+			}
+		}
+	}
+	for _, item := range articlesByTagAndDate {
+		articleIds = append(articleIds, item.ID)
+	}
+
+	articleCount = len(articleIds)
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"tag":          tagName,
+		"count":        articleCount,
+		"articles":     articleIds,
+		"related_tags": relatedTags,
+	})
 }
 
 // Add new article
