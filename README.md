@@ -5,7 +5,7 @@ title: Article API - Dean Lofts
 
 ![Nine Publishing](https://repository-images.githubusercontent.com/504058214/88657ffb-1213-4d40-b0b8-be00dbed134f)
 
-## Nine Publishing - Backend / Devops Articles API Test
+## Nine Publishing - Backend / DevOps Articles API Test
 
 [Test](https://ffxblue.github.io/interview-tests/test/article-api/)
 
