@@ -76,7 +76,7 @@ docker build -t loftwah/article-api:latest .
 
 Initialize the project
 
-````bash
+```bash
 go mod init github.com/loftwah/article-api
 ```
 
@@ -84,7 +84,7 @@ Install mux router
 
 ```bash
 go get -u github.com/gorilla/mux
-````
+```
 
 Build source code
 
