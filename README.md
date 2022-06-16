@@ -199,7 +199,7 @@ It took me about an hour to complete this, but I had to stop and do other things
 
 6. [Optional] Tell us what else you would have added to the code if you had more time
 
-I would have built it as a `GraphQL API` like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory.
+I would have built it as a `GraphQL API` like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory. I also would have included a proper directory structure and seperated the code into different files.
 
 **Note:** We prefer that you send us a link to a (public) repository. If you send an attachment via a zip file with your source code, please be aware that your email may get blocked. You will receive a confirmation email for your submission.
 
