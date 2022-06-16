@@ -53,6 +53,8 @@ You will need the `Golang` docker image to get started
 docker pull golang
 ```
 
+Now it is time to clone the repository and build the image
+
 ```bash
 git clone git@github.com:loftwah/article-api.git
 cd article-api
