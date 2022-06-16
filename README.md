@@ -17,7 +17,7 @@ I'm going to build this in `Golang`, which is actually a bad idea given it isn't
 
 [Golang](https://go.dev/doc/install) | [Golang official Docker image](https://hub.docker.com/_/golang) | [Managing Go Installations](https://go.dev/doc/manage-install)
 
-`Clone` my repository and change to the directory it has cloned to. I'm going to assume you're set up and able to run `Git` commands.
+Clone my repository and change to the directory it has cloned to. I'm going to assume you're set up and able to run `Git` commands.
 
 Download and install `Golang`
 
