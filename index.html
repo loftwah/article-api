@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="https://repository-images.githubusercontent.com/504058214/88657ffb-1213-4d40-b0b8-be00dbed134f" alt="Nine Publishing"></p>
+<h2 id="nine-publishing---backend--devops-articles-api-test">Nine Publishing - Backend / DevOps Articles API Test</h2>
+<p><a href="https://ffxblue.github.io/interview-tests/test/article-api/">Test</a></p>
+<p>This is my submission for the technical test for Nine Publishing.</p>
+<p>I'm going to build this in <code>Golang</code>, which is actually a bad idea given it isn't a language I'm familiar with. I will also write the instructions to go witih it.</p>
+<h2 id="usage">Usage</h2>
+<p><a href="https://go.dev/doc/install">Golang</a> | <a href="https://hub.docker.com/_/golang">Golang official Docker image</a> | <a href="https://go.dev/doc/manage-install">Managing Go Installations</a></p>
+<p>Clone my repository and change to the directory it has cloned to. I'm going to assume you're set up and able to run <code>Git</code> commands.</p>
+<p>Download and install <code>Golang</code></p>
+<pre class="hljs"><code><div>curl -O -L -C - https://go.dev/dl/go1.18.3.linux-amd64.tar.gz <span class="hljs-comment"># Check the latest version here: https://golang.org/dl/</span>
+sudo tar -C /usr/<span class="hljs-built_in">local</span> -xvzf go1.18.3.linux-amd64.tar.gz
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"export PATH=<span class="hljs-variable">$PATH</span>:/usr/local/go/bin"</span> &gt;&gt; <span class="hljs-variable">$HOME</span>/.profile
+<span class="hljs-built_in">source</span> <span class="hljs-variable">$HOME</span>/.profile
+go version
+</div></code></pre>
+<p>Download and install <code>Docker</code> (I'm using <code>Ubuntu</code> so any instructions will be for that)</p>
+<pre class="hljs"><code><div>curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo service docker start
+sudo systemctl <span class="hljs-built_in">enable</span> docker
+sudo usermod -aG docker &lt;username&gt;
+</div></code></pre>
+<p>And <code>Docker-Compose</code></p>
+<pre class="hljs"><code><div>sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+sudo chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+docker-compose version
+</div></code></pre>
+<p>You will need the <code>Golang</code> docker image to get started</p>
+<pre class="hljs"><code><div>docker pull golang
+</div></code></pre>
+<p>Now it is time to clone the repository and build the image</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">clone</span> git@github.com:loftwah/article-api.git
+<span class="hljs-built_in">cd</span> article-api
+</div></code></pre>
+<p>This part can be skipped because it is how I built it, you are cloning a version where this has already been completed</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">export</span> GOFLAGS=-mod=vendor <span class="hljs-comment"># might not be needed</span>
+<span class="hljs-built_in">export</span> GO111MODULE=on <span class="hljs-comment"># might not be needed</span>
+go mod init github.com/loftwah/article-api
+</div></code></pre>
+<p>(Optional) Use <code>Docker</code> and build the <code>Dockerfile</code></p>
+<pre class="hljs"><code><div>docker build -t loftwah/article-api:latest .
+</div></code></pre>
+<p>(Optional) Run the <code>Docker</code> image. I use a different port for each test so I can run multiple tests at once.</p>
+<pre class="hljs"><code><div>docker run -p 8001:8000 loftwah/article-api
+</div></code></pre>
+<h2 id="solution">Solution</h2>
+<p><a href="https://github.com/gorilla/mux">mux</a></p>
+<p>Initialize the project</p>
+<pre class="hljs"><code><div>go mod init github.com/loftwah/article-api
+</div></code></pre>
+<p>Install mux router</p>
+<pre class="hljs"><code><div>go get -u github.com/gorilla/mux
+</div></code></pre>
+<p>Build source code</p>
+<pre class="hljs"><code><div>go build
+</div></code></pre>
+<p>Run the <code>API</code></p>
+<pre class="hljs"><code><div>./article-api
+</div></code></pre>
+<h3 id="meet-requirement-1">Meet requirement 1</h3>
+<p>The first endpoint, POST <code>/articles</code> should handle the receipt of some article data in json format, and store it within the service.</p>
+<p>Create a new article</p>
+<pre class="hljs"><code><div>curl -H <span class="hljs-string">"Content-Type: application/json"</span> -X POST -d <span class="hljs-string">'{"id":"1","title":"Article Three","date":"2021-09-17","body":"This is the body of article three","tags":["tag1","tag2","tag3"]}'</span> http://127.0.0.1:8000/articles
+</div></code></pre>
+<p>You can check that your article has been added with the following command</p>
+<pre class="hljs"><code><div>curl http://127.0.0.1:8000/articles
+</div></code></pre>
+<h3 id="meet-requirement-2">Meet requirement 2</h3>
+<p>The second endpoint GET <code>/articles/{id}</code> should return the JSON representation of the article.</p>
+<p>Use <code>cURL</code> to show that your article was added. My <code>ID</code> is <code>19727887</code> which may be different to yours.</p>
+<pre class="hljs"><code><div>curl http://127.0.0.1:8000/articles/19727887
+</div></code></pre>
+<h3 id="meet-requirement-3">Meet requirement 3</h3>
+<p>The final endpoint, GET <code>/tags/{tagName}/{date}</code> will return the list of articles that have that tag name on the given date and some summary data about that tag for that day.</p>
+<p>The GET <code>/tags/{tagName}/{date}</code> endpoint should produce the following JSON. Note that the actual url would look like /tags/health/20160922.</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"health"</span>,
+  <span class="hljs-attr">"count"</span>: <span class="hljs-number">17</span>,
+  <span class="hljs-attr">"articles"</span>: [<span class="hljs-string">"1"</span>, <span class="hljs-string">"7"</span>],
+  <span class="hljs-attr">"related_tags"</span>: [<span class="hljs-string">"science"</span>, <span class="hljs-string">"fitness"</span>]
+}
+</div></code></pre>
+<p>The <code>related_tags</code> field contains a list of tags that are on the articles that the current tag is on for the same day. It should not contain duplicates.</p>
+<p>The <code>count</code> field shows the number of tags for the tag for that day.</p>
+<p>The <code>articles</code> field contains a list of ids for the last 10 articles entered for that day.</p>
+<p>If you don't have data, run the following and change it up if you want to add more.</p>
+<pre class="hljs"><code><div>curl -H <span class="hljs-string">"Content-Type: application/json"</span> -X POST -d <span class="hljs-string">'{"id":"1","title":"Article Four","date":"2021-09-17","body":"This is the body of article four","tags":["tag1","tag2","tag3"]}'</span> http://127.0.0.1:8000/articles
+</div></code></pre>
+<p>Test the <code>API</code> endpoint</p>
+<pre class="hljs"><code><div>curl http://127.0.0.1:8000/tags/tag1/2021-09-17
+</div></code></pre>
+<h2 id="deliverables">Deliverables</h2>
+<ol>
+<li>Source code for the solution described above</li>
+</ol>
+<p>This has been delivered within this GitHub <a href="https://github.com/loftwah/article-api">repository</a></p>
+<ol start="2">
+<li>Setup/installation instructions</li>
+</ol>
+<p>Documentation has been written to show how this works, and how to use it</p>
+<ol start="3">
+<li>A quick (1-2 page) description of your solution, outlining anything of interest about the code you have produced. This could be anything from why you chose the language and or libraries, why you structured the project the way that you did, why you chose a particular error handling strategy, how you approached testing etc</li>
+</ol>
+<p>I have put together a small and quick <code>API</code> to demonstrate my ability to code and understanding of how an <code>API</code> works. I chose the language because it matches the stack that I could be working with if I end up being hired for a job, and I chose the <code>mux</code> library because I found that it would have been too much effort to attempt to build this in <code>GraphQL</code> when I wasn't familiar with it so much already and it looked like a good way to build the <code>API</code> that was described in the test document and I knew I'd be able to build what I needed with it even though I'd never used it before.</p>
+<p>I haven't actually accounted for error handling or testing as it wasn't mentioned as part of the requirements. If I had to add it in, I'd probably use a library like <code>go-test-deep</code> to test the error handling and testing, although I don't know certainly that this would work.</p>
+<p>The code consists of some common libraries I found while doing some tutorials before building this, and some code I wrote myself. It exists in the <code>main.go</code> file and starts by declaring the <code>Article</code> structure, which is made up of an <code>id</code>, <code>title</code>, <code>date</code>, <code>body</code> and <code>tags</code> field. I actually zoned out and lost track of what I was doing and built an entire <code>CRUD</code> style <code>API</code> and then worked out that I'd met the requirements later on.</p>
+<p>I had to revisit my <code>getArticleByTagAndDate</code> function because I made some assumptions at first that didn't actually match the requirements I needed to meet. With the small amount of data I'd been working with it was hard to tell if I was getting back what I should be, so I wrote a script (I didn't include it here, just some hacky bash code) to test the function and see if it was working as I expected.</p>
+<p>I hardcoded the data into the function to make it easy to work with and I also included some routes that weren't part of the requirements. The <code>server</code> will run on port <code>8000</code>. I have also included a <code>Dockerfile</code> to make it easy to build the image and run it.</p>
+<ol start="4">
+<li>A list of assumptions that you've made while putting this together. We've only given you a very loose spec, so you'll probably need to fill in some blanks while you are working. If you note down the assumptions, for us, then we will be able review the code within the context of those assumptions</li>
+</ol>
+<p>I assumed that this is an <code>API</code> to demonstrate that I understand how a basic <code>CRUD</code> application works, that the user has a reasonable understanding of an operating system that is able to run this application, and that the user has a basic understanding of the <code>Go</code> language.</p>
+<ol start="5">
+<li>[Optional] Tell us what you thought of the test and how long it took you to complete</li>
+</ol>
+<p>It took me about an hour to complete this, but I had to stop and do other things before I was able to come back and complete it.</p>
+<ol start="6">
+<li>[Optional] Tell us what else you would have added to the code if you had more time</li>
+</ol>
+<p>I would have built it as a <code>GraphQL API</code> like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory.</p>
+<p><strong>Note:</strong> We prefer that you send us a link to a (public) repository. If you send an attachment via a zip file with your source code, please be aware that your email may get blocked. You will receive a confirmation email for your submission.</p>
+<p><a href="https://github.com/loftwah/article-api">Link to repository</a></p>
+
+</body>
+</html>
