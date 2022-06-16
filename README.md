@@ -96,7 +96,7 @@ Build source code
 go build
 ```
 
-Run the API
+Run the `API`
 
 ```bash
 ./article-api
@@ -155,7 +155,7 @@ If you don't have data, run the following and change it up if you want to add mo
 curl -H "Content-Type: application/json" -X POST -d '{"id":"1","title":"Article Four","date":"2021-09-17","body":"This is the body of article four","tags":["tag1","tag2","tag3"]}' http://127.0.0.1:8000/articles
 ```
 
-Test the API endpoint
+Test the `API` endpoint
 
 ```bash
 curl http://127.0.0.1:8000/tags/tag1/2021-09-17
@@ -173,11 +173,11 @@ Documentation has been written to show how this works, and how to use it
 
 3. A quick (1-2 page) description of your solution, outlining anything of interest about the code you have produced. This could be anything from why you chose the language and or libraries, why you structured the project the way that you did, why you chose a particular error handling strategy, how you approached testing etc
 
-I have put together a small and quick API to demonstrate my ability to code and understanding of how an API works. I chose the language because it matches the stack that I could be working with if I end up being hired for a job, and I chose the `mux` library because I found that it would have been too much effort to attempt to build this in `GraphQL` when I wasn't familiar with it so much already and it looked like a good way to build the API that was described in the test document and I knew I'd be able to build what I needed with it even though I'd never used it before.
+I have put together a small and quick `API` to demonstrate my ability to code and understanding of how an `API` works. I chose the language because it matches the stack that I could be working with if I end up being hired for a job, and I chose the `mux` library because I found that it would have been too much effort to attempt to build this in `GraphQL` when I wasn't familiar with it so much already and it looked like a good way to build the `API` that was described in the test document and I knew I'd be able to build what I needed with it even though I'd never used it before.
 
 I haven't actually accounted for error handling or testing as it wasn't mentioned as part of the requirements. If I had to add it in, I'd probably use a library like `go-test-deep` to test the error handling and testing, although I don't know certainly that this would work.
 
-The code consists of some common libraries I found while doing some tutorials before building this, and some code I wrote myself. It exists in the `main.go` file and starts by declaring the `Article` structure, which is made up of an `id`, `title`, `date`, `body` and `tags` field. I actually zoned out and lost track of what I was doing and built an entire `CRUD` style API and then worked out that I'd met the requirements later on.
+The code consists of some common libraries I found while doing some tutorials before building this, and some code I wrote myself. It exists in the `main.go` file and starts by declaring the `Article` structure, which is made up of an `id`, `title`, `date`, `body` and `tags` field. I actually zoned out and lost track of what I was doing and built an entire `CRUD` style `API` and then worked out that I'd met the requirements later on.
 
 I had to revist my `getArticleByTagAndDate` function because I made some assumptions at first that didn't actually match the requirements I needed to meet. With the small amount of data I'd been working with it was hard to tell if I was getting back what I should be, so I wrote a script (I didn't include it here, just some hacky bash code) to test the function and see if it was working as I expected.
 
@@ -185,7 +185,7 @@ I hardcoded the data into the function to make it easy to work with and I also i
 
 4. A list of assumptions that you've made while putting this together. We've only given you a very loose spec, so you'll probably need to fill in some blanks while you are working. If you note down the assumptions, for us, then we will be able review the code within the context of those assumptions
 
-I assumed that this is an API to demonstrate that I understand how a basic CRUD application works, that the user has a reasonable understanding of an operating system that is able to run this application, and that the user has a basic understanding of the Go language.
+I assumed that this is an `API` to demonstrate that I understand how a basic `CRUD` application works, that the user has a reasonable understanding of an operating system that is able to run this application, and that the user has a basic understanding of the `Go` language.
 
 5. [Optional] Tell us what you thought of the test and how long it took you to complete
 
@@ -193,7 +193,7 @@ It took me about an hour to complete this, but I had to stop and do other things
 
 6. [Optional] Tell us what else you would have added to the code if you had more time
 
-I would have built it as a GraphQL API like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory.
+I would have built it as a `GraphQL API` like I said I would, but I already chose to use a programming language that I've never really used before and thought that was enough of an extra challenge, given it was a simple application. I also would attach it to a database rather than just storing things in memory.
 
 **Note:** We prefer that you send us a link to a (public) repository. If you send an attachment via a zip file with your source code, please be aware that your email may get blocked. You will receive a confirmation email for your submission.
 
