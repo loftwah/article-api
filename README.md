@@ -185,7 +185,7 @@ I haven't actually accounted for error handling or testing as it wasn't mentione
 
 The code consists of some common libraries I found while doing some tutorials before building this, and some code I wrote myself. It exists in the `main.go` file and starts by declaring the `Article` structure, which is made up of an `id`, `title`, `date`, `body` and `tags` field. I actually zoned out and lost track of what I was doing and built an entire `CRUD` style `API` and then worked out that I'd met the requirements later on.
 
-I had to revist my `getArticleByTagAndDate` function because I made some assumptions at first that didn't actually match the requirements I needed to meet. With the small amount of data I'd been working with it was hard to tell if I was getting back what I should be, so I wrote a script (I didn't include it here, just some hacky bash code) to test the function and see if it was working as I expected.
+I had to revisit my `getArticleByTagAndDate` function because I made some assumptions at first that didn't actually match the requirements I needed to meet. With the small amount of data I'd been working with it was hard to tell if I was getting back what I should be, so I wrote a script (I didn't include it here, just some hacky bash code) to test the function and see if it was working as I expected.
 
 I hardcoded the data into the function to make it easy to work with and I also included some routes that weren't part of the requirements. The `server` will run on port `8000`. I have also included a `Dockerfile` to make it easy to build the image and run it.
 
