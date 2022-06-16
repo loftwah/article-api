@@ -3,6 +3,8 @@ layout: test
 title: Article API - Dean Lofts
 ---
 
+![Nine Publishing](https://imageresizer.static9.net.au/da8TKAzhScf_Yp_b5wf4JVe-wJY=/800x0/https%3A%2F%2Fprod.static9.net.au%2Ffs%2F073890f8-64cf-4d64-862d-1f1863784ae6)
+
 ## Nine Publishing - Backend / Devops Articles API Test
 
 [Test](https://ffxblue.github.io/interview-tests/test/article-api/)
