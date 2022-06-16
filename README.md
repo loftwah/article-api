@@ -74,6 +74,12 @@ go mod init github.com/loftwah/article-api
 docker build -t loftwah/article-api:latest .
 ```
 
+(Optional) Run the `Docker` image. I use a different port for each test so I can run multiple tests at once.
+
+```bash
+docker run -p 8001:8000 loftwah/article-api
+```
+
 ## Solution
 
 [mux](https://github.com/gorilla/mux)
